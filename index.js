@@ -1,2 +1,26 @@
-var randomNumber1 = Math.floor(Math.random() * 6) + 1;
-document.querySelector(".img1")[0].setAttribute('src', 'images/dice${randomNumber1}.png');
+diceRoll();
+function diceRoll() {
+// first image
+    var randomNumber1 = `images/dice${Math.floor(Math.random() * 6) + 1}.png`;
+    var image = document.querySelector('.img1');
+    image.setAttribute("src", randomNumber1);
+// second image
+    var randomNumber2 = `images/dice${Math.floor(Math.random() * 6) + 1}.png`;
+    var image = document.querySelector('.img2');
+    image.setAttribute("src", randomNumber2);
+
+    result(randomNumber1, randomNumber2);
+}
+
+function result(firstDice,secondDice){
+    var heading = document.querySelector('h1');
+    if(firstDice===secondDice){
+        heading.innerHTML = "DRAW"
+    }
+    else if(firstDice>secondDice){
+        heading.innerHTML = "Player 1 Wins 🚩"
+    }
+    else{
+        heading.innerHTML = "Player 2 Wins 🚩";
+    }
+}
